@@ -38,4 +38,3 @@ function game() {
         score = i;
     }
 }
-game()
