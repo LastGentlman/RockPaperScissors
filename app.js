@@ -1,22 +1,56 @@
-const paperBtn = document.getElementById('1')
-                .addEventListener('click', playGround('paper'));
-const scissorsBtn = document.getElementById('2')
-                .addEventListener('click', playGround('scissors'));
-const rockBtn = document.getElementById('3')
-                .addEventListener('click', playGround('rock'));
+const paperBtn = document.getElementById('paper-el')
+                .addEventListener('click', () => {
+                    playGround('Paper', aiPlay());
+                });
+const scissorsBtn = document.getElementById('scissors-el')
+                .addEventListener('click', () => {
+                    playGround('Scissors', aiPlay());
+                });
+const rockBtn = document.getElementById('rock-el')
+                .addEventListener('click', () => {
+                    playGround('Rock', aiPlay());
+                });
 
-const iaSelection = document.querySelector('ia-sel');
+const iaSelection = document.querySelector('.ia-sel');
+
+const scoreEl = document.querySelector('.score');
+
+const choice = document.createElement('p');
 
 function aiPlay() {
-    let choices = ['Rock', 'Paper', 'Scissors'];
-    let choice = choices[Math.floor(Math.random() * choices.length)];
+    const choicesImgs = new Array();
+
+        choicesImgs[0] = new Image();
+        choicesImgs[0].src = './imgs/rock.png';
+
+        choicesImgs[1] = new Image();
+        choicesImgs[1].src = './imgs/paper.png';
+
+        choicesImgs[2] = new Image();
+        choicesImgs[2].src = './imgs/scissors.png';
+
+    iaSelection.appendChild(choice);
+    choice.textContent = `${choicesImgs[Math.floor(Math.random() * choicesImgs.length)]}`;
 
     console.log('ai: ' + choice);
     return choice;
 }
 
-function playGround(pla) {
-   console.log(`${pla} clicked!`);
+function playGround(pla, ai) {
+    if (pla === 'Rock' && ai === 'Paper') {
+        console.log('Player Lose!');
+    } else if (pla === 'Rock' && ai === 'Scissors') {
+        console.log('Player Wins!');
+    } else if (pla === 'Paper' && ai === 'Scissors') {
+        console.log('Player Lose!');
+    } else if (pla === 'Paper' && ai === 'Rock') {
+        console.log('Player Wins!');
+    } else if (pla === 'Scissors' && ai === 'Rock') {
+        console.log('Player Loss!');
+    } else if (pla === 'Scissors' && ai === 'Paper') {
+        console.log('Player Wins!');
+    }
+    console.log('Player:' + pla)
 }
 
 function game() {
