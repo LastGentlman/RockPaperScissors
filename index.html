@@ -1,17 +1,30 @@
 <html>
     <head>
         <link rel="stylesheet" href="style.css">
+        <script src="app.js" defer></script>
     </head>
     <body>
+
         <div class='container'>
+
             <div class="score"></div>
-            <div class="selBox">
-                <img id="paper-el" src="./imgs/paper.png" alt="paper" title="Paper">
-                <img id="scissors-el" src="./imgs/scissors.png" alt="scissors" title="Scissors">
-                <img id="rock-el" src="./imgs/rock.png" alt="rock" title="Rock">
+
+            <div class="sel-area">
+                <fieldset class="player-sel">
+                    <legend>Player:<meter id="player-hp" value="5" min="0" max="5"></meter></legend>
+                    <img id="paper-el" src="./imgs/paper.png" alt="paper" title="Paper">
+                    <img id="scissors-el" src="./imgs/scissors.png" alt="scissors" title="Scissors">
+                    <img id="rock-el" src="./imgs/rock.png" alt="rock" title="Rock">
+                </fieldset>
+
+                <fieldset class="ia-sel">
+                    <legend>Ai:<meter id="ai-hp" value="5" min="0" max="5"></meter></legend>
+                    <img id="paper-ai" src="./imgs/paper.png" alt="paper" title="Paper">
+                    <img id="scissors-ai" src="./imgs/scissors.png" alt="scissors" title="Scissors">
+                    <img id="rock-ai" src="./imgs/rock.png" alt="rock" title="Rock">
+                </fieldset>
             </div>
-            <div class="ia-sel"></div>
+
         </div>
-        <script src="app.js"></script>
     </body>
 </html>
